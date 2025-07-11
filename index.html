@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🧪 Prompt starten</title>
+  <title>Prompt starten</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -23,13 +23,13 @@
       background-color: #45a049;
     }
     .symbol {
-      font-size: 3em;
+      font-size: 2.5em;
       margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
-  <div class="symbol">🧪</div>
+  <div class="symbol">🔒</div>
   <p>Prompt bereit – jetzt starten</p>
   <button onclick="copyPrompt()">Prompt kopieren & ChatGPT öffnen</button>
 
@@ -78,7 +78,8 @@ Passe die Formatierung dieses Texts dem Ausgabeformat an aber beachte das die in
 Wenn Antwort= Nein, oder weitere Eingaben oder ähnliches, warte auf weitere Eingaben
 
 Das nachfolgende Symbol soll am Ende des jetzigen Eingabeprompts erscheinen, aber nicht analysiert werden.
-🧪`;
+
+![Precursor](https://raw.githubusercontent.com/AeshmaDaeva3227/Chemikalien-ChatGPT/main/Precursor.png)`;
       navigator.clipboard.writeText(prompt).then(() => {
         window.open("https://chat.openai.com/?lang=de", "_blank");
       });
