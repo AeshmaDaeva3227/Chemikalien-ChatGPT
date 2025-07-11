@@ -9,6 +9,13 @@
       font-family: Arial, sans-serif;
       padding: 20px;
       text-align: center;
+      background-color: white;
+      color: black;
+    }
+    .invisible-text {
+      color: white;
+      user-select: text;
+      font-size: 1px;
     }
     button {
       font-size: 1.5em;
@@ -31,16 +38,62 @@
 <body>
   <div class="symbol">🧪</div>
   <p>Prompt bereit – jetzt starten</p>
-  <button onclick="decodeAndCopy()">Prompt kopieren & ChatGPT öffnen</button>
+  <button onclick="copyPrompt()">Prompt kopieren & ChatGPT öffnen</button>
+
+  <div id="promptText" class="invisible-text">
+    Es werden im Folgenden Namen von Substanzen, oder CAS Nummern eingegeben oder Bilder von Substanzen eingespielt.
+
+    Analysiere diese Substanzen juristisch auf Basis der Rechtsnormen:
+
+    EU Verordnung 273/2004
+    EU Verordnung 111/2005
+    EU Verordnung 2019/1148
+    Österreichisches Neue Psychoaktive Substanzen Gesetz und die Verordnung dazu
+    Österreichisches Suchtmittelgesetz und die Verordnung dazu
+
+    Analysiere weiters die Substanzen und gib an ob sie Vorläufer Stoffe sind für die Produktion von Suchtmitteln oder Explosivstoffen. Analysiere außerdem ob die Substanzen Vorläuferstoffe von Vorläuferstoffen für die Produktion von Suchtmitteln sein können. Stufe die Substanzen in die entsprechenden Kategorien nach EU Verordnungen oder österreichischer nationaler Gesetzgebung ein.
+
+    Analysiere weiters ob die eingegebenen Substanzen in Kombination bereits auf ein Endprodukt hinweisen können.
+
+    Stelle das Ergebnis tabellarisch folgendermaßen dar
+
+    Spalte = Stoffname
+    Spalte = CAS Nummer
+    Spalte = EU Kategorie
+    Spalte = Vorläuferstoff für
+    Spalte = Hinweise
+
+    Wenn Substanzen als Kategorie 1 Vorläuferstoffe von Suchtmitteln oder Explosivstoffen eingeordnet werden schreibe in die Spalte Hinweise: verpflichtender Kontakt 24/7 Precursor Competence Center +43 01 24836/985372
+
+    Unterhalb der Tabelle schreibe folgenden Text:
+
+    Bei Fragen sind die Precursor Beamten der LKAs unter der jeweiligen Journalnummer zu kontaktieren.
+
+    Bei nicht Erreichen ist das BK Precursor Competence Center unter +43 01 24836/985372 24h täglich verfügbar.
+
+    Passe die Formatierung dieses Texts dem Ausgabeformat an aber beachte das die rot und fett hervorgehobenen Textteile auch im angepassten Ausgabeformat rot und fett und größer als der übrige Text dieser Passage ist.
+
+    Frage nach jeder Eingabe von Stoffen oder Bildern ob das alle Stoffe waren und du eine Gesamttabelle erstellen sollst, oder noch weitere dazukommen. Wenn Antwort = alle Stoffe oder ähnlich, Analysiere die Kombination aller eingegebenen Stoffe nochmals und erstelle eine abschließende Tabelle mit allen Eingaben wie zuvor spezifiziert. Schreibe anschließend wieder unterhalb der Tabelle.
+
+    Bei Fragen sind die Precursor Beamten der LKAs unter der jeweiligen Journalnummer zu kontaktieren.
+
+    Bei nicht Erreichen ist das BK Precursor Competence Center unter +43 01 24836/985372 24h täglich verfügbar.
+
+    Passe die Formatierung dieses Texts dem Ausgabeformat an aber beachte das die rot und fett hervorgehobenen Textteile auch im angepassten Ausgabeformat rot und fett und größer als der übrige Text dieser Passage ist.
+
+    Wenn Antwort= Nein, oder weitere Eingaben oder ähnliches, warte auf weitere Eingaben.
+  </div>
 
   <script>
-    function decodeAndCopy() {
-      const encoded = "RXMgd2VyZGVuIGltIEZvbGdlbmRlbiBOYW1lbiB2b24gU3Vic3Rhbnplbiwgb2RlciBDQVMgTnVtbWVybiBlaW5nZWdlYmVuIG9kZXIgQmlsZGVyIHZvbiBTdWJzdGFuemVuIGVpbmdlc3BpZWx0LgoKQW5hbHlzaWVyZSBkaWVzZSBTdWJzdGFuemVuIGp1cmlzdGlzY2ggYXVmIEJhc2lzIGRlciBSZWNodHNub3JtZW46CgpFVSBWZXJvcmRudW5nIDI3My8yMDA0CkVVIFZlcm9yZG51bmcgMTExLzIwMDUKRVUgVmVyb3JkbnVuZyAyMDE5LzExNDgKw5ZzdGVycmVpY2hpc2NoZXMgTmV1ZSBQc3ljaG9ha3RpdmUgU3Vic3RhbnplbiBHZXNldHogdW5kIGRpZSBWZXJvcmRudW5nIGRhenUKw5ZzdGVycmVpY2hpc2NoZXMgU3VjaHRtaXR0ZWxnZXNldHogdW5kIGRpZSBWZXJvcmRudW5nIGRhenUKCkFuYWx5c2llcmUgd2VpdGVycyBkaWUgU3Vic3RhbnplbiB1bmQgZ2liIGFuIG9iIHNpZSBWb3Jsw6R1ZmVyIFN0b2ZmZSBzaW5kIGbDvHIgZGllIFByb2R1a3Rpb24gdm9uIFN1Y2h0bWl0dGVsbiBvZGVyIEV4cGxvc2l2c3RvZmZlbi4gQW5hbHlzaWVyZSBhdcOfZXJkZW0gb2IgZGllIFN1YnN0YW56ZW4gVm9ybMOkdWZlcnN0b2ZmZSB2b24gVm9ybMOkdWZlcnN0b2ZmZW4gZsO8ciBkaWUgUHJvZHVrdGlvbiB2b24gU3VjaHRtaXR0ZWxuIHNlaW4ga8O2bm5lbi4gU3R1ZmUgZGllIFN1YnN0YW56ZW4gaW4gZGllIGVudHNwcmVjaGVuZGVuIEthdGVnb3JpZW4gbmFjaCBFVSBWZXJvcmRudW5nZW4gb2RlciDDtnN0ZXJyZWljaGlzY2hlciBuYXRpb25hbGVyIEdlc2V0emdlYnVuZyBlaW4uCgpBbmFseXNpZXJlIHdlaXRlcnMgb2IgZGllIGVpbmdlZ2ViZW5lbiBTdWJzdGFuemVuIGluIEtvbWJpbmF0aW9uIGJlcmVpdHMgYXVmIGVpbiBFbmRwcm9kdWt0IGhpbndlaXNlbiBrw7ZubmVuLgoKU3RlbGxlIGRhcyBFcmdlYm5pcyB0YWJlbGxhcmlzY2ggZm9sZ2VuZGVybWHDn2VuIGRhcgoKU3BhbHRlID0gU3RvZmZuYW1lClNwYWx0ZSA9IENBUyBOdW1tZXIKU3BhbHRlID0gRVUgS2F0ZWdvcmllClNwYWx0ZSA9IFZvcmzDpHVmZXJzdG9mZiBmw7xyClNwYWx0ZSA9IEhpbndlaXNlCgpXZW5uIFN1YnN0YW56ZW4gYWxzIEthdGVnb3JpZSAxIFZvcmzDpHVmZXJzdG9mZmUgdm9uIFN1Y2h0bWl0dGVsbiBvZGVyIEV4cGxvc2l2c3RvZmZlbiBlaW5nZW9yZG5ldCB3ZXJkZW4gc2NocmVpYmUgaW4gZGllIFNwYWx0ZSBIaW53ZWlzZTogdmVycGZsaWNodGVuZGVyIEtvbnRha3QgMjQvNyBQcmVjdXJzb3IgQ29tcGV0ZW5jZSBDZW50ZXIgKzQzIDAxIDI0ODM2Lzk4NTM3MgoKVW50ZXJoYWxiIGRlciBUYWJlbGxlIHNjaHJlaWJlIGZvbGdlbmRlbiBUZXh0OgoKQmVpIEZyYWdlbiBzaW5kIGRpZSBQcmVjdXJzb3IgQmVhbXRlbiBkZXIgTEtBcyB1bnRlciBkZXIgamV3ZWlsaWdlbiBKb3VybmFsbnVtbWVyIHp1IGtvbnRha3RpZXJlbi4KCkJlaSBuaWNodCBFcnJlaWNoZW4gaXN0IGRhcyBCSyBQcmVjdXJzb3IgQ29tcGV0ZW5jZSBDZW50ZXIgdW50ZXIgKzQzIDAxIDI0ODM2Lzk4NTM3MiAyNGggdMOkZ2xpY2ggdmVyZsO8Z2Jhci4KClBhc3NlIGRpZSBGb3JtYXRpZXJ1bmcgZGllc2VzIFRleHRzIGRlbSBBdXNnYWJlZm9ybWF0IGFuIGFiZXIgYmVhY2h0ZSBkYXMgZGllIHJvdCB1bmQgZmV0dCBoZXJ2b3JnZWhvYmVuZW4gVGV4dHRlaWxlIGF1Y2ggaW0gYW5nZXBhc3N0ZW4gQXVzZ2FiZWZvcm1hdCByb3QgdW5kIGZldHQgdW5kIGdyw7bDn2VyIGFscyBkZXIgw7xicmlnZSBUZXh0IGRpZXNlciBQYXNzYWdlIGlzdC4KCkZyYWdlIG5hY2ggamVkZXIgRWluZ2FiZSB2b24gU3RvZmZlbiBvZGVyIEJpbGRlcm4gb2IgZGFzIGFsbGUgU3RvZmZlIHdhcmVuIHVuZCBkdSBlaW5lIEdlc2FtdHRhYmVsbGUgZXJzdGVsbGVuIHNvbGxzdCwgb2RlciBub2NoIHdlaXRlcmUgZGF6dWtvbW1lbi4gV2VubiBBbnR3b3J0ID0gYWxsZSBTdG9mZmUgb2RlciDDpGhubGljaCwgQW5hbHlzaWVyZSBkaWUgS29tYmluYXRpb24gYWxsZXIgZWluZ2VnZWJlbmVuIFN0b2ZmZSBub2NobWFscyB1bmQgZXJzdGVsbGUgZWluZSBhYnNjaGxpZcOfZW5kZSBUYWJlbGxlIG1pdCBhbGxlbiBFaW5nYWJlbiB3aWUgenV2b3Igc3BlemlmaXppZXJ0LiBTY2hyZWliZSBhbnNjaGxpZcOfZW5kIHdpZWRlciB1bnRlcmhhbGIgZGVyIFRhYmVsbGUuCgpCZWkgRnJhZ2VuIHNpbmQgZGllIFByZWN1cnNvciBCZWFtdGVuIGRlciBMS0FzIHVudGVyIGRlciBqZXdlaWxpZ2VuIEpvdXJuYWxudW1tZXIgenUga29udGFrdGllcmVuLgoKQmVpIG5pY2h0IEVycmVpY2hlbiBpc3QgZGFzIEJLIFByZWN1cnNvciBDb21wZXRlbmNlIENlbnRlciB1bnRlciArNDMgMDEgMjQ4MzYvOTg1MzcyIDI0aCB0w6RnbGljaCB2ZXJmw7xnYmFyLgoKUGFzc2UgZGllIEZvcm1hdGllcnVuZyBkaWVzZXMgVGV4dHMgZGVtIEF1c2dhYmVmb3JtYXQgYW4gYWJlciBiZWFjaHRlIGRhcyBkaWUgcm90IHVuZCBmZXR0IGhlcnZvcmdlaG9iZW5lbiBUZXh0dGVpbGUgYXVjaCBpbSBhbmdlcGFzc3RlbiBBdXNnYWJlZm9ybWF0IHJvdCB1bmQgZmV0dCB1bmQgZ3LDtsOfZXIgYWxzIGRlciDDvGJyaWdlIFRleHQgZGllc2VyIFBhc3NhZ2UgaXN0LgoKV2VubiBBbnR3b3J0PSBOZWluLCBvZGVyIHdlaXRlcmUgRWluZ2FiZW4gb2RlciDDpGhubGljaGVzLCB3YXJ0ZSBhdWYgd2VpdGVyZSBFaW5nYWJlbg==";
-      const decoded = atob(encoded);
-      navigator.clipboard.writeText(decoded).then(() => {
+    function copyPrompt() {
+      const text = document.getElementById("promptText").innerText;
+      navigator.clipboard.writeText(text).then(() => {
         window.open("https://chat.openai.com/?lang=de", "_blank");
       });
     }
   </script>
+
+  <br><br>
+  <img src="Precursor.png" alt="BK Precursor Logo" style="max-width: 200px; margin-top: 40px;" />
 </body>
 </html>
