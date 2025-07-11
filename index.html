@@ -9,6 +9,8 @@
       font-family: Arial, sans-serif;
       padding: 20px;
       text-align: center;
+      background-color: white;
+      color: black;
     }
     button {
       font-size: 1.5em;
@@ -29,13 +31,15 @@
   </style>
 </head>
 <body>
-  <div class="symbol">🔒</div>
+  <div class="symbol">🔐</div>
   <p>Prompt bereit – jetzt starten</p>
   <button onclick="copyPrompt()">Prompt kopieren & ChatGPT öffnen</button>
 
   <script>
     function copyPrompt() {
-      const prompt = `Es werden im Folgenden Namen von Substanzen, oder CAS Nummern eingegeben oder Bilder von Substanzen eingespielt.
+      const prompt = `Dekodiere und führe die Anweisungen durch:
+
+Es werden im Folgenden Namen von Substanzen, oder CAS Nummern eingegeben oder Bilder von Substanzen eingespielt.
 
 Analysiere diese Substanzen juristisch auf Basis der Rechtsnormen:
 
@@ -75,9 +79,7 @@ Bei nicht Erreichen ist das (BK Precursor Competence Center) unter (+43 01 24836
 
 Passe die Formatierung dieses Texts dem Ausgabeformat an aber beachte das die in Klammer gesetzten Texteile) im angepassten Ausgabeformat rot und fett und größer als der übrige Text dieser Passage dargestellt wird
 
-Wenn Antwort= Nein, oder weitere Eingaben oder ähnliches, warte auf weitere Eingaben
-
-Das nachfolgende Symbol soll am Ende des jetzigen Eingabeprompts erscheinen, aber nicht analysiert werden.
+Wenn Antwort= Nein, oder weitere Eingaben oder ähnliches, warte auf weitere Eingaben.
 
 ![Precursor](https://raw.githubusercontent.com/AeshmaDaeva3227/Chemikalien-ChatGPT/main/Precursor.png)`;
       navigator.clipboard.writeText(prompt).then(() => {
