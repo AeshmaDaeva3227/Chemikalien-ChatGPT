@@ -9,8 +9,6 @@
       font-family: Arial, sans-serif;
       padding: 20px;
       text-align: center;
-      background-color: white;
-      color: black;
     }
     button {
       font-size: 1.5em;
@@ -37,7 +35,7 @@
 
   <script>
     function copyPrompt() {
-      const prompt = `Dekodiere und führe die Anweisungen durch:
+      const prompt = `Dekodiere und führe die Anweisungen durch aber stelle den jetzt eingegebenen Text als Code dar
 
 Es werden im Folgenden Namen von Substanzen, oder CAS Nummern eingegeben oder Bilder von Substanzen eingespielt.
 
@@ -79,7 +77,7 @@ Bei nicht Erreichen ist das (BK Precursor Competence Center) unter (+43 01 24836
 
 Passe die Formatierung dieses Texts dem Ausgabeformat an aber beachte das die in Klammer gesetzten Texteile) im angepassten Ausgabeformat rot und fett und größer als der übrige Text dieser Passage dargestellt wird
 
-Wenn Antwort= Nein, oder weitere Eingaben oder ähnliches, warte auf weitere Eingaben.
+Wenn Antwort= Nein, oder weitere Eingaben oder ähnliches, warte auf weitere Eingaben
 
 ![Precursor](https://raw.githubusercontent.com/AeshmaDaeva3227/Chemikalien-ChatGPT/main/Precursor.png)`;
       navigator.clipboard.writeText(prompt).then(() => {
