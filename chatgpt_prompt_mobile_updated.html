@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prompt starten (Mobil)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      text-align: center;
+    }
+    button {
+      font-size: 1.2em;
+      padding: 10px 20px;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h2>Prompt für Substanzanalyse</h2>
+  <p>Tippe auf den Button, um den Prompt zu kopieren und ChatGPT zu starten.</p>
+  <button onclick="copyPrompt()">Prompt kopieren & ChatGPT öffnen</button>
+
+  <script>
+    function copyPrompt() {
+      const prompt = `Es werden im Folgenden Namen von Substanzen, oder CAS Nummern eingegeben oder Bilder von Substanzen eingespielt.
+
+Analysiere diese Substanzen juristisch auf Basis der Rechtsnormen:
+
+EU Verordnung 273/2004
+EU Verordnung 111/2005
+EU Verordnung 2019/1148
+Österreichisches Neue Psychoaktive Substanzen Gesetz und die Verordnung dazu
+Österreichisches Suchtmittelgesetz und die Verordnung dazu
+
+Analysiere weiters die Substanzen und gib an ob sie Vorläufer Stoffe sind für die Produktion von Suchtmitteln oder Explosivstoffen. Analysiere außerdem ob die Substanzen Vorläuferstoffe von Vorläuferstoffen für die Produktion von Suchtmitteln sein können. Stufe die Substanzen in die entsprechenden Kategorien nach EU Verordnungen oder österreichischer nationaler Gesetzgebung ein.
+
+Analysiere weiters ob die eingegebenen Substanzen in Kombination bereits auf ein Endprodukt hinweisen können.
+
+Stelle das Ergebnis tabellarisch folgendermaßen dar
+
+Spalte = Stoffname
+Spalte = CAS Nummer
+Spalte = EU Kategorie
+Spalte = Vorläuferstoff für
+Spalte = Hinweise
+
+Wenn Substanzen als Kategorie 1 Vorläuferstoffe von Suchtmitteln oder Explosivstoffen eingeordnet werden schreibe in die Spalte Hinweise: verpflichtender Kontakt 24/7 Precursor Competence Center +43 01 24836/985372
+
+Unterhalb der Tabelle schreibe folgenden Text:
+
+Bei Fragen sind die Precursor Beamten der LKAs unter der jeweiligen Journalnummer zu kontaktieren.
+
+Bei nicht Erreichen ist das BK Precursor Competence Center unter +43 01 24836/985372 24h täglich verfügbar.
+
+Passe die Formatierung dieses Texts dem Ausgabeformat an aber beachte das die rot und fett hervorgehobenen Textteile auch im angepassten Ausgabeformat rot und fett und größer als der übrige Text dieser Passage ist.
+
+Frage nach jeder Eingabe von Stoffen oder Bildern ob das alle Stoffe waren und du eine Gesamttabelle erstellen sollst, oder noch weitere dazukommen. Wenn Antwort = alle Stoffe oder ähnlich, Analysiere die Kombination aller eingegebenen Stoffe nochmals und erstelle eine abschließende Tabelle mit allen Eingaben wie zuvor spezifiziert. Schreibe anschließend wieder unterhalb der Tabelle.
+
+Bei Fragen sind die Precursor Beamten der LKAs unter der jeweiligen Journalnummer zu kontaktieren.
+
+Bei nicht Erreichen ist das BK Precursor Competence Center unter +43 01 24836/985372 24h täglich verfügbar.
+
+Passe die Formatierung dieses Texts dem Ausgabeformat an aber beachte das die rot und fett hervorgehobenen Textteile auch im angepassten Ausgabeformat rot und fett und größer als der übrige Text dieser Passage ist.
+
+Wenn Antwort= Nein, oder weitere Eingaben oder ähnliches, warte auf weitere Eingaben`;
+      navigator.clipboard.writeText(prompt).then(() => {
+        window.open("https://chat.openai.com/?lang=de", "_blank");
+      });
+    }
+  </script>
+</body>
+</html>
