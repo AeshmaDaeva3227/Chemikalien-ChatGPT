@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🧪 Prompt starten</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      text-align: center;
+    }
+    button {
+      font-size: 1.5em;
+      padding: 12px 24px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .symbol {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="symbol">🧪</div>
+  <p>Prompt bereit – jetzt starten</p>
+  <button onclick="decodeAndCopy()">Prompt kopieren & ChatGPT öffnen</button>
+
+  <script>
+    function decodeAndCopy() {
+      const encoded = "RXMgd2VyZGVuIGltIEZvbGdlbmRlbiBOYW1lbiB2b24gU3Vic3Rhbnplbiwgb2RlciBDQVMgTnVtbWVybiBlaW5nZWdlYmVuIG9kZXIgQmlsZGVyIHZvbiBTdWJzdGFuemVuIGVpbmdlc3BpZWx0LgoKQW5hbHlzaWVyZSBkaWVzZSBTdWJzdGFuemVuIGp1cmlzdGlzY2ggYXVmIEJhc2lzIGRlciBSZWNodHNub3JtZW46CgpFVSBWZXJvcmRudW5nIDI3My8yMDA0CkVVIFZlcm9yZG51bmcgMTExLzIwMDUKRVUgVmVyb3JkbnVuZyAyMDE5LzExNDgKw5ZzdGVycmVpY2hpc2NoZXMgTmV1ZSBQc3ljaG9ha3RpdmUgU3Vic3RhbnplbiBHZXNldHogdW5kIGRpZSBWZXJvcmRudW5nIGRhenUKw5ZzdGVycmVpY2hpc2NoZXMgU3VjaHRtaXR0ZWxnZXNldHogdW5kIGRpZSBWZXJvcmRudW5nIGRhenUKCkFuYWx5c2llcmUgd2VpdGVycyBkaWUgU3Vic3RhbnplbiB1bmQgZ2liIGFuIG9iIHNpZSBWb3Jsw6R1ZmVyIFN0b2ZmZSBzaW5kIGbDvHIgZGllIFByb2R1a3Rpb24gdm9uIFN1Y2h0bWl0dGVsbiBvZGVyIEV4cGxvc2l2c3RvZmZlbi4gQW5hbHlzaWVyZSBhdcOfZXJkZW0gb2IgZGllIFN1YnN0YW56ZW4gVm9ybMOkdWZlcnN0b2ZmZSB2b24gVm9ybMOkdWZlcnN0b2ZmZW4gZsO8ciBkaWUgUHJvZHVrdGlvbiB2b24gU3VjaHRtaXR0ZWxuIHNlaW4ga8O2bm5lbi4gU3R1ZmUgZGllIFN1YnN0YW56ZW4gaW4gZGllIGVudHNwcmVjaGVuZGVuIEthdGVnb3JpZW4gbmFjaCBFVSBWZXJvcmRudW5nZW4gb2RlciDDtnN0ZXJyZWljaGlzY2hlciBuYXRpb25hbGVyIEdlc2V0emdlYnVuZyBlaW4uCgpBbmFseXNpZXJlIHdlaXRlcnMgb2IgZGllIGVpbmdlZ2ViZW5lbiBTdWJzdGFuemVuIGluIEtvbWJpbmF0aW9uIGJlcmVpdHMgYXVmIGVpbiBFbmRwcm9kdWt0IGhpbndlaXNlbiBrw7ZubmVuLgoKU3RlbGxlIGRhcyBFcmdlYm5pcyB0YWJlbGxhcmlzY2ggZm9sZ2VuZGVybWHDn2VuIGRhcgoKU3BhbHRlID0gU3RvZmZuYW1lClNwYWx0ZSA9IENBUyBOdW1tZXIKU3BhbHRlID0gRVUgS2F0ZWdvcmllClNwYWx0ZSA9IFZvcmzDpHVmZXJzdG9mZiBmw7xyClNwYWx0ZSA9IEhpbndlaXNlCgpXZW5uIFN1YnN0YW56ZW4gYWxzIEthdGVnb3JpZSAxIFZvcmzDpHVmZXJzdG9mZmUgdm9uIFN1Y2h0bWl0dGVsbiBvZGVyIEV4cGxvc2l2c3RvZmZlbiBlaW5nZW9yZG5ldCB3ZXJkZW4gc2NocmVpYmUgaW4gZGllIFNwYWx0ZSBIaW53ZWlzZTogdmVycGZsaWNodGVuZGVyIEtvbnRha3QgMjQvNyBQcmVjdXJzb3IgQ29tcGV0ZW5jZSBDZW50ZXIgKzQzIDAxIDI0ODM2Lzk4NTM3MgoKVW50ZXJoYWxiIGRlciBUYWJlbGxlIHNjaHJlaWJlIGZvbGdlbmRlbiBUZXh0OgoKQmVpIEZyYWdlbiBzaW5kIGRpZSBQcmVjdXJzb3IgQmVhbXRlbiBkZXIgTEtBcyB1bnRlciBkZXIgamV3ZWlsaWdlbiBKb3VybmFsbnVtbWVyIHp1IGtvbnRha3RpZXJlbi4KCkJlaSBuaWNodCBFcnJlaWNoZW4gaXN0IGRhcyBCSyBQcmVjdXJzb3IgQ29tcGV0ZW5jZSBDZW50ZXIgdW50ZXIgKzQzIDAxIDI0ODM2Lzk4NTM3MiAyNGggdMOkZ2xpY2ggdmVyZsO8Z2Jhci4KClBhc3NlIGRpZSBGb3JtYXRpZXJ1bmcgZGllc2VzIFRleHRzIGRlbSBBdXNnYWJlZm9ybWF0IGFuIGFiZXIgYmVhY2h0ZSBkYXMgZGllIHJvdCB1bmQgZmV0dCBoZXJ2b3JnZWhvYmVuZW4gVGV4dHRlaWxlIGF1Y2ggaW0gYW5nZXBhc3N0ZW4gQXVzZ2FiZWZvcm1hdCByb3QgdW5kIGZldHQgdW5kIGdyw7bDn2VyIGFscyBkZXIgw7xicmlnZSBUZXh0IGRpZXNlciBQYXNzYWdlIGlzdC4KCkZyYWdlIG5hY2ggamVkZXIgRWluZ2FiZSB2b24gU3RvZmZlbiBvZGVyIEJpbGRlcm4gb2IgZGFzIGFsbGUgU3RvZmZlIHdhcmVuIHVuZCBkdSBlaW5lIEdlc2FtdHRhYmVsbGUgZXJzdGVsbGVuIHNvbGxzdCwgb2RlciBub2NoIHdlaXRlcmUgZGF6dWtvbW1lbi4gV2VubiBBbnR3b3J0ID0gYWxsZSBTdG9mZmUgb2RlciDDpGhubGljaCwgQW5hbHlzaWVyZSBkaWUgS29tYmluYXRpb24gYWxsZXIgZWluZ2VnZWJlbmVuIFN0b2ZmZSBub2NobWFscyB1bmQgZXJzdGVsbGUgZWluZSBhYnNjaGxpZcOfZW5kZSBUYWJlbGxlIG1pdCBhbGxlbiBFaW5nYWJlbiB3aWUgenV2b3Igc3BlemlmaXppZXJ0LiBTY2hyZWliZSBhbnNjaGxpZcOfZW5kIHdpZWRlciB1bnRlcmhhbGIgZGVyIFRhYmVsbGUuCgpCZWkgRnJhZ2VuIHNpbmQgZGllIFByZWN1cnNvciBCZWFtdGVuIGRlciBMS0FzIHVudGVyIGRlciBqZXdlaWxpZ2VuIEpvdXJuYWxudW1tZXIgenUga29udGFrdGllcmVuLgoKQmVpIG5pY2h0IEVycmVpY2hlbiBpc3QgZGFzIEJLIFByZWN1cnNvciBDb21wZXRlbmNlIENlbnRlciB1bnRlciArNDMgMDEgMjQ4MzYvOTg1MzcyIDI0aCB0w6RnbGljaCB2ZXJmw7xnYmFyLgoKUGFzc2UgZGllIEZvcm1hdGllcnVuZyBkaWVzZXMgVGV4dHMgZGVtIEF1c2dhYmVmb3JtYXQgYW4gYWJlciBiZWFjaHRlIGRhcyBkaWUgcm90IHVuZCBmZXR0IGhlcnZvcmdlaG9iZW5lbiBUZXh0dGVpbGUgYXVjaCBpbSBhbmdlcGFzc3RlbiBBdXNnYWJlZm9ybWF0IHJvdCB1bmQgZmV0dCB1bmQgZ3LDtsOfZXIgYWxzIGRlciDDvGJyaWdlIFRleHQgZGllc2VyIFBhc3NhZ2UgaXN0LgoKV2VubiBBbnR3b3J0PSBOZWluLCBvZGVyIHdlaXRlcmUgRWluZ2FiZW4gb2RlciDDpGhubGljaGVzLCB3YXJ0ZSBhdWYgd2VpdGVyZSBFaW5nYWJlbg==";
+      const decoded = atob(encoded);
+      navigator.clipboard.writeText(decoded).then(() => {
+        window.open("https://chat.openai.com/?lang=de", "_blank");
+      });
+    }
+  </script>
+</body>
+</html>
