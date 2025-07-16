@@ -42,6 +42,8 @@
 Analysiere diese Substanzen juristisch auf Basis der Rechtsnormen:
 EU Verordnung 273/2004
 EU Verordnung 111/2005
+EU Voluntary Monitoring List of Non-scheduled Substances
+Österreichisches Chemikaliengesetz und Verordnungen dazu
 EU Verordnung 1148/2019
 EU Voluntary Monitoring List of Non-scheduled Substances
 Österreichisches Neue Psychoaktive Substanzen Gesetz und die Verordnung dazu
@@ -67,7 +69,7 @@ Wenn Antwort= Nein, oder weitere Eingaben oder ähnliches, warte auf weitere Ein
     function copyPrompt() {
       const textArea = document.getElementById("promptText");
       textArea.select();
-      textArea.setSelectionRange(0, 999999); // für iOS
+      textArea.setSelectionRange(0, 999999);
       document.execCommand("copy");
       window.open("https://chat.openai.com/?lang=de", "_blank");
     }
