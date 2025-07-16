@@ -26,6 +26,11 @@
       font-size: 2.5em;
       margin-bottom: 20px;
     }
+    #promptText {
+      position: absolute;
+      left: -9999px;
+      white-space: pre-wrap;
+    }
   </style>
 </head>
 <body>
@@ -33,9 +38,7 @@
   <p>Prompt bereit – jetzt starten</p>
   <button onclick="copyPrompt()">Prompt kopieren & ChatGPT öffnen</button>
 
-  <script>
-    function copyPrompt() {
-      const prompt = `Es werden im Folgenden Namen von Substanzen, oder CAS Nummern eingegeben oder Bilder von Substanzen eingespielt.
+  <textarea id="promptText">Es werden im Folgenden Namen von Substanzen, oder CAS Nummern eingegeben oder Bilder von Substanzen eingespielt.
 Analysiere diese Substanzen juristisch auf Basis der Rechtsnormen:
 EU Verordnung 273/2004
 EU Verordnung 111/2005
@@ -58,10 +61,15 @@ Bei Fragen sind die Precursor Beamten der LKAs unter der jeweiligen Journalnumme
 Bei nicht Erreichen ist das BK Precursor Competence Center unter +43 01 24836/985372 24h täglich verfügbar.
 Passe die Formatierung dieses Texts dem Ausgabeformat an aber beachte das die rot und fett hervorgehobenen Textteile auch im angepassten Ausgabeformat rot und fett und größer als der übrige Text dieser Passage ist.
 Frage nach jeder Eingabe von Stoffen oder Bildern ob das alle Stoffe waren und du eine Gesamttabelle erstellen sollst, oder noch weitere dazukommen. Wenn Antwort = alle Stoffe oder ähnlich, Analysiere die Kombination aller eingegebenen Stoffe nochmals und erstelle eine abschließende Tabelle mit allen Eingaben wie zuvor spezifiziert. Schreibe anschließend wieder unterhalb der Tabelle.
-Wenn Antwort= Nein, oder weitere Eingaben oder ähnliches, warte auf weitere Eingaben`;
-      navigator.clipboard.writeText(prompt).then(() => {
-        window.open("https://chat.openai.com/?lang=de", "_blank");
-      });
+Wenn Antwort= Nein, oder weitere Eingaben oder ähnliches, warte auf weitere Eingaben</textarea>
+
+  <script>
+    function copyPrompt() {
+      const textArea = document.getElementById("promptText");
+      textArea.select();
+      textArea.setSelectionRange(0, 999999); // für iOS
+      document.execCommand("copy");
+      window.open("https://chat.openai.com/?lang=de", "_blank");
     }
   </script>
 </body>
