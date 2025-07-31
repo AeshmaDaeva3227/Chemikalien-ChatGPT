@@ -2,31 +2,28 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prompt starten</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ChatGPT Prompt</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 20px;
+      padding: 2rem;
       text-align: center;
     }
+    .symbol {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
     button {
-      font-size: 1.5em;
-      padding: 12px 24px;
+      font-size: 1.2rem;
+      padding: 1rem 2rem;
       background-color: #4CAF50;
       color: white;
       border: none;
-      border-radius: 8px;
+      border-radius: 6px;
       cursor: pointer;
     }
-    button:hover {
-      background-color: #45a049;
-    }
-    .symbol {
-      font-size: 2.5em;
-      margin-bottom: 20px;
-    }
-    #promptText {
+    textarea {
       position: absolute;
       left: -9999px;
       white-space: pre-wrap;
@@ -34,46 +31,50 @@
   </style>
 </head>
 <body>
-  <div class="symbol">🔐</div>
+  <div class="symbol">🧪</div>
   <p>Prompt bereit – jetzt starten</p>
   <button onclick="copyPrompt()">Prompt kopieren & ChatGPT öffnen</button>
-
-  <textarea id="promptText">Es werden im Folgenden Substanzen (Name, CAS-Nummer oder Bild) eingegeben.Analysiere jede Substanz juristisch ausschließlich auf Grundlage der folgenden Normen und deren jeweils gültigen Anhängen oder Anlagen:
-EU-Verordnung 273/2004 (insb. Anhang I)
-EU-Verordnung 111/2005 (insb. Anhang I)
-EU-Verordnung 2019/1148 (insb. Anhang I und II)
-EU Voluntary Monitoring List of Non-Scheduled Substances (nur, wenn Substanz dort ausdrücklich genannt ist)
-Österreichisches Suchtmittelgesetz (SMG) und zugehörige Verordnung
-Österreichisches Neue-Psychoaktive-Substanzen-Gesetz (NPSG) und Verordnung
-Österreichisches Chemikaliengesetz und zugehörige Verordnungen
-⚠️ Verwende keine anderen Quellen, keine allgemeine chemische Literatur, keine abgeleiteten oder assoziativen Schlüsse.
-Bei jeder Klassifizierung muss die Quelle genau angegeben werden (z. B. „Kategorie 2A gemäß Anhang I der Verordnung (EG) Nr. 273/2004“).
-Analysiere weiters die Substanzen und gib an ob sie Vorläufer Stoffe sind für die Produktion von Suchtmitteln oder Explosivstoffen. Analysiere außerdem ob die Substanzen Vorläuferstoffe von Vorläuferstoffen für die Produktion von Suchtmitteln sein können
-Analysiere weiters ob die eingegebenen Substanzen in Kombination bereits auf ein Endprodukt hinweisen können.
-Stelle das Ergebnis tabellarisch folgendermaßen dar
-Spalte = Stoffname 
-Spalte = CAS Nummer
-Spalte = EU Kategorie
-Spalte = Vorläuferstoff für
-Spalte = Hinweise
-Wenn Substanzen als Kategorie 1 Vorläuferstoffe von Suchtmitteln oder Explosivstoffen eingeordnet werden schreibe in die Spalte Hinweise: verpflichtender Kontakt 24/7 Precursor Competence Center +43 01 24836/985372
-Unterhalb der Tabelle schreibe folgenden Text:
-Bei Fragen sind die Precursor Beamten der LKAs unter der jeweiligen Journalnummer zu kontaktieren.
-Bei nicht Erreichen ist das BK Precursor Competence Center unter +43 01 24836/985372 24h täglich verfügbar.
-Passe die Formatierung dieses Texts dem Ausgabeformat an aber beachte das die rot und fett hervorgehobenen Textteile auch im angepassten Ausgabeformat rot und fett und größer als der übrige Text dieser Passage ist.
-Frage nach jeder Eingabe von Stoffen oder Bildern ob das alle Stoffe waren und du eine Gesamttabelle erstellen sollst, oder noch weitere dazukommen. Wenn Antwort = alle Stoffe oder ähnlich, Analysiere die Kombination aller eingegebenen Stoffe nochmals und erstelle eine abschließende Tabelle mit allen Eingaben wie zuvor spezifiziert. Schreibe anschließend wieder unterhalb der Tabelle.
-Wenn Antwort= Nein, oder weitere Eingaben oder ähnliches, warte auf weitere Eingaben</textarea>
-
+  <textarea id="promptText">Es werden im Folgenden Substanzen (Name, CAS-Nummer oder Bild) eingegeben. Die juristische Analyse erfolgt ausschließlich anhand der folgenden Rechtsquellen:
+EU-Verordnung (EG) Nr. 273/2004 – Anhang I (Drogenvorläuferstoffe)
+EU-Verordnung (EG) Nr. 111/2005 – Anhang I (Drogenvorläuferstoffe im Außenhandel)
+EU-Verordnung (EU) 2019/1148 – Anhang I (beschränkte Ausgangsstoffe für Explosivstoffe), Anhang II (meldepflichtige Stoffe)
+EU Voluntary Monitoring List of Non-Scheduled Substances
+Österreichisches Suchtmittelgesetz (SMG) samt zugehöriger Suchtgiftverordnung – Anlage I (Vorläuferstoffe)
+Österreichisches Neue-Psychoaktive-Substanzen-Gesetz (NPSG) samt Verordnung
+Österreichisches Chemikaliengesetz (ChemG) samt Verordnungen
+Zwingende Regeln zur Auswertung:
+Die Prüfung jeder Substanz erfolgt in einer festen Schleife: a. CAS-Nummer und Stoffname werden in allen genannten Anhängen / Anlagen wortwörtlich abgeglichen. b. Ist kein wortwörtlicher Fund vorhanden, wird automatisch der Eintrag vorgenommen: „Keine Einordnung in genannte Rechtsquellen“. c. Jegliche Ableitungen, Rückschlüsse oder Analogien – auch wenn sie chemisch korrekt sind – sind kategorisch ausgeschlossen.
+Die Befüllung der Spalte „EU-Kategorie / Einordnung“ darf ausschließlich erfolgen, wenn der Stoff explizit und wortwörtlich in einem der Anhänge oder Anlagen genannt ist. Die Angabe muss exakt lauten, z. B.: → „Kategorie 1 gemäß Anhang I der Verordnung (EG) Nr. 273/2004“ → „Anhang I der Verordnung (EU) 2019/1148“
+Ist kein Eintrag in den genannten Rechtsquellen vorhanden, ist verbindlich in Spalte 3 einzutragen: → „Keine Einordnung in genannte Rechtsquellen“
+Es ist streng untersagt, folgende Methoden für die Einordnung zu verwenden:
+Assoziative Schlüsse („ähnlich wie…“)
+Gruppenschlüsse („Perchlorate gehören zu…“)
+Ableitung über chemische Struktur oder Funktion
+Rückgriff auf chemische Fachliteratur oder toxikologische Klassifikationen
+4a. Besonders streng untersagt ist jede Ableitung aus der Rolle eines Stoffes als Oxidationsmittel, Reduktionsmittel, Lösungsmittel oder Trägersubstanz.
+4b. Die Tatsache, dass ein Stoff in Sprengstoffen, Pyrotechnik oder Synthesen verwendet werden kann, berechtigt nicht zu einer Einordnung. Nur die wörtliche Nennung zählt.
+Vor jeder Einordnung ist zusätzlich zu überprüfen, ob der Stoff auch dann eingestuft würde, wenn Name und CAS-Nummer unkenntlich gemacht würden. Wenn dies nicht möglich wäre, muss zwingend „Keine Einordnung“ eingetragen werden.
+Tabellenstruktur für jede Substanzeingabe: | Stoffname | CAS-Nummer | EU-Kategorie / Einordnung (Rechtsquelle) | Vorläuferstoff für | Hinweise |
+Hinweispflicht bei Hochrisikostoffen: Wenn der Stoff in einem dieser Anhänge genannt wird:
+Anhang I der VO (EG) Nr. 273/2004
+Anhang I der VO (EG) Nr. 111/2005
+Anhang I der VO (EU) 2019/1148
+Anlage I des österreichischen SMG …dann ist zwingend in der Spalte Hinweise folgender Vermerk zu machen: ‼️ Verpflichtender Kontakt 24/7 Precursor Competence Center +43 01 24836/985372
+Schritt 2: Stoffkombinationsanalyse (getrennt): Nach Einzelerfassung aller Substanzen erfolgt eine separate Analyse, ob:
+die Substanzen Vorläuferstoffe für die Herstellung von Suchtmitteln oder Explosivstoffen sind
+sie Vorläuferstoffe von Vorläuferstoffen sind
+sie in Kombination Hinweise auf ein bestimmtes Endprodukt geben (z. B. Schwarzpulver, MDMA, Amphetamin, Nitroverbindungen usw.) ➡️ Für diesen Schritt dürfen assoziative und chemische Fachkenntnisse verwendet werden.
+Abschlussformulierung unter jeder Tabelle: Bei Fragen sind die Precursor-Beamten der Landeskriminalämter (LKA) unter der jeweiligen Journalnummer zu kontaktieren.
+Bei Nicht-Erreichen ist das Bundeskriminalamt – Precursor Competence Center unter +43 01 24836/985372 rund um die Uhr verfügbar.
+Substanzeingabe-Routine: Nach jeder Eingabe frage ich: „Waren das alle Stoffe, oder folgen noch weitere?“ Wenn ja: Ich fasse alle Stoffe in einer abschließenden Tabelle zusammen. Wenn nein: Ich warte auf die nächsten Eingaben.</textarea>
   <script>
     function copyPrompt() {
-      const textArea = document.getElementById("promptText");
-      textArea.select();
-      textArea.setSelectionRange(0, 999999);
+      const txt = document.getElementById("promptText");
+      txt.select();
+      txt.setSelectionRange(0, 999999);
       document.execCommand("copy");
       window.open("https://chat.openai.com/?lang=de", "_blank");
     }
   </script>
 </body>
 </html>
-        
-
