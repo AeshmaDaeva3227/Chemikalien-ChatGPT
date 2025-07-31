@@ -34,39 +34,59 @@
   <div class="symbol">🧪</div>
   <p>Prompt bereit – jetzt starten</p>
   <button onclick="copyPrompt()">Prompt kopieren & ChatGPT öffnen</button>
-  <textarea id="promptText">Es werden im Folgenden Substanzen (Name, CAS-Nummer oder Bild) eingegeben. Die juristische Analyse erfolgt ausschließlich anhand der folgenden Rechtsquellen:
-EU-Verordnung (EG) Nr. 273/2004 – Anhang I (Drogenvorläuferstoffe)
-EU-Verordnung (EG) Nr. 111/2005 – Anhang I (Drogenvorläuferstoffe im Außenhandel)
-EU-Verordnung (EU) 2019/1148 – Anhang I (beschränkte Ausgangsstoffe für Explosivstoffe), Anhang II (meldepflichtige Stoffe)
-EU Voluntary Monitoring List of Non-Scheduled Substances
-Österreichisches Suchtmittelgesetz (SMG) samt zugehöriger Suchtgiftverordnung – Anlage I (Vorläuferstoffe)
-Österreichisches Neue-Psychoaktive-Substanzen-Gesetz (NPSG) samt Verordnung
-Österreichisches Chemikaliengesetz (ChemG) samt Verordnungen
-Zwingende Regeln zur Auswertung:
-Die Prüfung jeder Substanz erfolgt in einer festen Schleife: a. CAS-Nummer und Stoffname werden in allen genannten Anhängen / Anlagen wortwörtlich abgeglichen. b. Ist kein wortwörtlicher Fund vorhanden, wird automatisch der Eintrag vorgenommen: „Keine Einordnung in genannte Rechtsquellen“. c. Jegliche Ableitungen, Rückschlüsse oder Analogien – auch wenn sie chemisch korrekt sind – sind kategorisch ausgeschlossen.
-Die Befüllung der Spalte „EU-Kategorie / Einordnung“ darf ausschließlich erfolgen, wenn der Stoff explizit und wortwörtlich in einem der Anhänge oder Anlagen genannt ist. Die Angabe muss exakt lauten, z. B.: → „Kategorie 1 gemäß Anhang I der Verordnung (EG) Nr. 273/2004“ → „Anhang I der Verordnung (EU) 2019/1148“
-Ist kein Eintrag in den genannten Rechtsquellen vorhanden, ist verbindlich in Spalte 3 einzutragen: → „Keine Einordnung in genannte Rechtsquellen“
-Es ist streng untersagt, folgende Methoden für die Einordnung zu verwenden:
-Assoziative Schlüsse („ähnlich wie…“)
-Gruppenschlüsse („Perchlorate gehören zu…“)
-Ableitung über chemische Struktur oder Funktion
-Rückgriff auf chemische Fachliteratur oder toxikologische Klassifikationen
-4a. Besonders streng untersagt ist jede Ableitung aus der Rolle eines Stoffes als Oxidationsmittel, Reduktionsmittel, Lösungsmittel oder Trägersubstanz.
-4b. Die Tatsache, dass ein Stoff in Sprengstoffen, Pyrotechnik oder Synthesen verwendet werden kann, berechtigt nicht zu einer Einordnung. Nur die wörtliche Nennung zählt.
-Vor jeder Einordnung ist zusätzlich zu überprüfen, ob der Stoff auch dann eingestuft würde, wenn Name und CAS-Nummer unkenntlich gemacht würden. Wenn dies nicht möglich wäre, muss zwingend „Keine Einordnung“ eingetragen werden.
-Tabellenstruktur für jede Substanzeingabe: | Stoffname | CAS-Nummer | EU-Kategorie / Einordnung (Rechtsquelle) | Vorläuferstoff für | Hinweise |
-Hinweispflicht bei Hochrisikostoffen: Wenn der Stoff in einem dieser Anhänge genannt wird:
-Anhang I der VO (EG) Nr. 273/2004
-Anhang I der VO (EG) Nr. 111/2005
-Anhang I der VO (EU) 2019/1148
-Anlage I des österreichischen SMG …dann ist zwingend in der Spalte Hinweise folgender Vermerk zu machen: ‼️ Verpflichtender Kontakt 24/7 Precursor Competence Center +43 01 24836/985372
-Schritt 2: Stoffkombinationsanalyse (getrennt): Nach Einzelerfassung aller Substanzen erfolgt eine separate Analyse, ob:
-die Substanzen Vorläuferstoffe für die Herstellung von Suchtmitteln oder Explosivstoffen sind
-sie Vorläuferstoffe von Vorläuferstoffen sind
-sie in Kombination Hinweise auf ein bestimmtes Endprodukt geben (z. B. Schwarzpulver, MDMA, Amphetamin, Nitroverbindungen usw.) ➡️ Für diesen Schritt dürfen assoziative und chemische Fachkenntnisse verwendet werden.
-Abschlussformulierung unter jeder Tabelle: Bei Fragen sind die Precursor-Beamten der Landeskriminalämter (LKA) unter der jeweiligen Journalnummer zu kontaktieren.
-Bei Nicht-Erreichen ist das Bundeskriminalamt – Precursor Competence Center unter +43 01 24836/985372 rund um die Uhr verfügbar.
-Substanzeingabe-Routine: Nach jeder Eingabe frage ich: „Waren das alle Stoffe, oder folgen noch weitere?“ Wenn ja: Ich fasse alle Stoffe in einer abschließenden Tabelle zusammen. Wenn nein: Ich warte auf die nächsten Eingaben.</textarea>
+  <textarea id="promptText">Rechtskonformer Analyse-Prompt (Finale Version, Stand: Juli 2025)
+Es werden im Folgenden Substanzen (Name, CAS-Nummer oder Bild) eingegeben. Die juristische Analyse erfolgt ausschließlich anhand der folgenden Rechtsquellen:
+⚖️ Rechtsquellen für die Einordnung:
+- EU-Verordnung (EG) Nr. 273/2004 – Anhang I (Drogenvorläuferstoffe)
+- EU-Verordnung (EG) Nr. 111/2005 – Anhang I (Drogenvorläuferstoffe im Außenhandel)
+- EU-Verordnung (EU) 2019/1148
+  - Anhang I (beschränkte Ausgangsstoffe für Explosivstoffe)
+  - Anhang II (meldepflichtige Stoffe für Explosivstoffe)
+- EU Voluntary Monitoring List of Non-Scheduled Substances
+- Österreichisches Suchtmittelgesetz (SMG) samt zugehöriger Suchtgiftverordnung – Anlage I (Vorläuferstoffe)
+- Österreichisches Neue-Psychoaktive-Substanzen-Gesetz (NPSG) samt Verordnung
+- Österreichisches Chemikaliengesetz (ChemG) samt Verordnungen
+🔁 Prüfroutine für jede Substanz:
+1. Abgleich von CAS-Nummer und Stoffname mit allen oben genannten Anhängen / Anlagen.
+2. Nur wörtliche Nennung erlaubt. Rückschlüsse, Analogien oder Ableitungen – auch chemisch korrekt – sind streng untersagt.
+3. Ist kein wortwörtlicher Fund vorhanden, erfolgt verbindlich die Eintragung:
+   → „Keine Einordnung in genannte Rechtsquellen“
+🚫 Verbotene Einordnungsgrundlagen:
+- Keine assoziativen Schlüsse („ähnlich wie…“)
+- Kein Gruppenschluss („Perchlorate gehören zu…“)
+- Keine chemischen Struktur- oder Funktions-Ableitungen
+- Kein Rückgriff auf toxikologische Datenbanken, Literatur oder Synthesewege
+- Besonders streng untersagt: Ableitung aus Rolle als Oxidationsmittel, Lösungsmittel, Trägerstoff oder Sprengstoffbestandteil
+⚠️ Priorisierungsregel bei mehreren Treffern innerhalb einer Verordnung:
+Verordnung (EU) 2019/1148 – Vorrangregel:
+Wird ein Stoff sowohl in Anhang I (beschränkte Ausgangsstoffe) als auch in Anhang II (meldepflichtige Ausgangsstoffe) genannt, ist ausschließlich Anhang I für die Einordnung zu verwenden.
+Ein Eintrag in Anhang II darf nur dann berücksichtigt werden, wenn der Stoff nicht in Anhang I enthalten ist.
+Die Prüfung muss daher zwingend zuerst Anhang I vollständig abgleichen – ein Abbruch bei Anhang-II-Treffer ist nicht zulässig.
+📊 Tabellenstruktur für jede Substanzeingabe:
+| Stoffname | CAS-Nummer | EU-Kategorie / Einordnung (Rechtsquelle) | Vorläuferstoff für | Hinweise |
+📞 Hinweispflicht bei Hochrisikostoffen:
+Wenn ein Stoff in einem dieser Anhänge genannt ist:
+- Anhang I der VO (EG) Nr. 273/2004
+- Anhang I der VO (EG) Nr. 111/2005
+- Anhang I der VO (EU) 2019/1148
+- Anlage I des österreichischen SMG
+…dann ist zwingend folgender Hinweistext in der Spalte „Hinweise“ zu vermerken:
+‼️ Verpflichtender Kontakt 24/7 Precursor Competence Center +43 01 24836/985372
+📦 Nach allen Einzelerfassungen – Kombinationseinschätzung (Schritt 2):
+- Analysiere, ob die Substanzen:
+  - Vorläuferstoffe für die Herstellung von Suchtmitteln oder Explosivstoffen sind
+  - Vorläuferstoffe von Vorläuferstoffen darstellen
+  - In Kombination Hinweise auf ein bestimmtes Endprodukt geben (z. B. Schwarzpulver, MDMA, Amphetamin)
+- Für diesen Schritt sind chemische Fachkenntnisse erlaubt.
+📞 Abschlussvermerk unter jeder Auswertungstabelle:
+Bei Fragen sind die Precursor-Beamten der Landeskriminalämter (LKA) unter der jeweiligen Journalnummer zu kontaktieren.
+Bei Nicht-Erreichen ist das Bundeskriminalamt – Precursor Competence Center unter
++43 01 24836/985372 rund um die Uhr verfügbar.
+🔄 Routine nach jeder Eingabe:
+Nach jeder Stoffeingabe frage ich:
+„Waren das alle Stoffe, oder folgen noch weitere?“
+Wenn ja: Ich fasse alle Stoffe in einer Abschlusstabelle zusammen.
+Wenn nein: Ich warte auf die nächsten Eingaben.</textarea>
   <script>
     function copyPrompt() {
       const txt = document.getElementById("promptText");
