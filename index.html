@@ -1,12 +1,38 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Chemikalien Prompt</title>
-    <script>
-    async function copyAndOpen() {
-        const text = `Es werden im Folgenden Substanzen (Name, CAS-Nummer oder Bild) eingegeben.
+    <title>Prompt starten</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+        button {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        textarea {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            height: 1px;
+            width: 1px;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>📋 Prompt vorbereiten</h2>
+    <button onclick="copyPrompt()">Prompt kopieren &amp; ChatGPT öffnen</button>
+    <textarea id="promptText">Es werden im Folgenden Substanzen (Name, CAS-Nummer oder Bild) eingegeben.
 Schritt 1
 Analysiere jede Substanz juristisch ausschließlich auf Grundlage der folgenden Normen und deren jeweils gültigen Anhängen oder Anlagen:
 EU-Verordnung 273/2004 (insb. Anhang I)
@@ -22,35 +48,25 @@ Spalte = CAS Nummer
 Spalte = EU Kategorie oder Einordnung in österreichisches SMG, österreichisches NPSG, österreichisches Chemikaliengesetz
 Spalte = Vorläuferstoff für
 Spalte = Hinweise
-
 Wenn Substanzen als Kategorie 1 Vorläuferstoffe von Suchtmitteln oder Anhang 1 Vorläuferstoffe von Explosivstoffen eingeordnet werden schreibe in die Spalte Hinweise: verpflichtender Kontakt 24/7 Precursor Competence Center +43 01 24836/985372
 ⚠️ Verwende keine anderen Quellen, keine allgemeine chemische Literatur, keine abgeleiteten oder assoziativen Schlüsse für die Analyse und Befüllung der 3. Spalte.
 Bei jeder Klassifizierung muss die Quelle genau angegeben werden (z. B. „Kategorie 2A gemäß Anhang I der Verordnung (EG) Nr. 273/2004“).
 Schritt 2
 Analysiere weiters die Substanzen und gib an ob sie Vorläufer Stoffe sind für die Produktion von Suchtmitteln oder Explosivstoffen. Analysiere außerdem ob die Substanzen Vorläuferstoffe von Vorläuferstoffen für die Produktion von Suchtmitteln sein können
 Analysiere weiters ob die eingegebenen Substanzen in Kombination bereits auf ein Endprodukt hinweisen können. Bei diesem Schritt kann allgemeine chemische Literatur und assoziative Schlüsse verwendet werden.
-
 Unterhalb der Tabelle schreibe folgenden Text:
 Bei Fragen sind die Precursor Beamten der LKAs unter der jeweiligen Journalnummer zu kontaktieren.
 Bei nicht Erreichen ist das BK Precursor Competence Center unter +43 01 24836/985372 24h täglich verfügbar.
 Passe die Formatierung dieses Texts dem Ausgabeformat an aber beachte das die rot und fett hervorgehobenen Textteile auch im angepassten Ausgabeformat rot und fett und größer als der übrige Text dieser Passage ist.
 Frage nach jeder Eingabe von Stoffen oder Bildern ob das alle Stoffe waren und du eine Gesamttabelle erstellen sollst, oder noch weitere dazukommen. Wenn Antwort = alle Stoffe oder ähnlich, Analysiere die Kombination aller eingegebenen Stoffe nochmals und erstelle eine abschließende Tabelle mit allen Eingaben wie zuvor spezifiziert. Schreibe anschließend wieder unterhalb der Tabelle.
-Wenn Antwort= Nein, oder weitere Eingaben oder ähnliches, warte auf weitere Eingaben
-
-`;
-        try {
-            await navigator.clipboard.writeText(text);
+Wenn Antwort= Nein, oder weitere Eingaben oder ähnliches, warte auf weitere Eingaben</textarea>
+    <script>
+        function copyPrompt() {
+            const textArea = document.getElementById("promptText");
+            textArea.select();
+            document.execCommand("copy");
             window.open("https://chat.openai.com/?lang=de", "_blank");
-        } catch (err) {
-            alert("Fehler beim Kopieren des Prompts: " + err);
         }
-    }
     </script>
-</head>
-<body style="font-family:sans-serif; text-align:center; padding:2em;">
-    <div style="font-size:4em;">🔐</div>
-    <button onclick="copyAndOpen()" style="padding:1em 2em; font-size:1.2em; cursor:pointer;">
-        Prompt kopieren & ChatGPT öffnen
-    </button>
 </body>
 </html>
